@@ -1,0 +1,64 @@
+body {
+    overflow: hidden; /* Hide scrollbars */
+    background-color: #ADD8E6; /* Light Blue Background */
+}
+
+#game-container {
+    width: 600px;
+    height: 200px;
+    border-bottom: 3px solid black;
+    margin: 50px auto;
+    position: relative; /* Needed for absolute positioning of character and obstacle */
+    overflow: hidden;  /* Clip content that overflows the container */
+    background-color: #90EE90; /* Light Green Ground */
+}
+
+#character {
+    width: 30px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    bottom: 0; /* Start at the bottom */
+    left: 50px;
+}
+
+#obstacle {
+    width: 20px;
+    height: 40px;
+    background-color: black;
+    position: absolute;
+    bottom: 0; /* Also at the bottom */
+    right: -20px; /* Start offscreen to the right */
+    animation: obstacleMove 2s linear infinite; /* Move obstacle from right to left */
+}
+
+@keyframes obstacleMove {
+    0% {
+        right: -20px; /* Start offscreen */
+    }
+    100% {
+        right: 600px; /* Move across the container */
+    }
+}
+
+.jump {
+    animation: jump 0.4s linear;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 150px; /* Height of the jump */
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+#Score-container{
+  width: 600px;
+  text-align: right;
+  margin: 0px auto;
+}
